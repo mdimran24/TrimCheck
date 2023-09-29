@@ -7,13 +7,14 @@ import AppointmentForm from "../components/AppointmentForm";
 
 const Home = () => {
   const {appointments, dispatch} = useAppointmentsContext()
+  
   useEffect(() => {
     const fetchAppointments = async () => {
       const response = await fetch("/api/appointments");
       const json = await response.json();
 
       if (response.ok) {
-        dispatch({type: 'SET_APPOINTMEENTS', payload: json})
+        dispatch({type: 'SET_APPOINTMENTS', payload: json})
       }
     };
 

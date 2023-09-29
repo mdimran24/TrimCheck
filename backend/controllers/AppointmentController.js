@@ -48,7 +48,7 @@ const deleteAppointment = async (req, res) => {
         return res.status(404).json({error:'No such appointment'})
     }
 
-    const appointment = await Appointment.findOneandDelete({_id: id})
+    const appointment = await Appointment.findOneAndDelete({_id: id})
 
     if(!appointment){
         return res.status(404).json({error: 'No such appointment'})
