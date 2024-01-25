@@ -5,6 +5,7 @@ require('dotenv').config()
 const app = express()
 const mongoose = require('mongoose')
 const appointmentRoutes = require('./routes/appointments')
+const userRoutes = require('./routes/user')
 
 //middleware
 app.use(express.json())
@@ -16,6 +17,7 @@ app.use((req, res, next) => {
 
 //routes
 app.use('/api/appointments', appointmentRoutes)
+app.use('/api/user', userRoutes)
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
@@ -26,6 +28,6 @@ app.listen(process.env.PORT, () =>{
 })
 })
 .catch((error) => {
-    console.log
+    console.log(error)
 })
 

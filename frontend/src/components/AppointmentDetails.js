@@ -3,6 +3,7 @@ import { useAppointmentsContext } from "../hooks/useAppointmentsContext"
 const AppointmentDetails = ({ appointment }) => {
     const { dispatch } = useAppointmentsContext()
     
+    
     const handleClick = async () => {
         const response = await fetch('./api/appointments/' + appointment._id, {
             method: 'DELETE'
@@ -12,13 +13,22 @@ const AppointmentDetails = ({ appointment }) => {
         if (response.ok){
             dispatch({type: 'DELETE_APPOINTMENT', payload: json})
         }
+
+
+
     }
+    // const time = appointment.date.getHours() + ':' + appointment.date.getMinute();
+    const dateTime  = new Date(appointment.date)
+    const time = dateTime.getHours() + ':' + dateTime.getMinutes();
+    const date = dateTime.getDate() + '/' + dateTime.getMonth() + '/' + dateTime.getFullYear();
+
     return (
         <div className="appointment-details">
             <h4><strong>Appointee: </strong>{appointment.appointee}</h4>
-            <p><strong>Date: </strong>{appointment.date}</p>
+            <p><strong>Date: </strong>{date}</p>
+            <p><strong>Time: </strong>{time}</p>
             <p><strong>Barber: </strong>{appointment.barber}</p>
-            <p>{appointment.createdAt}</p>
+            {/* <p>{appointment.createdAt}</p> */}
             <span onClick={handleClick}>delete</span>
         </div>
     )

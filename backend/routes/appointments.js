@@ -5,7 +5,7 @@ const {
     createAppointment,
     updateAppointment,
     deleteAppointment
-} = require('../controllers/AppointmentController')
+} = require('../controllers/appointmentController')
 
 const router = express.Router()
 

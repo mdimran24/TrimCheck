@@ -5,6 +5,8 @@ import AppointmentDetails from '../components/AppointmentDetails'
 import AppointmentForm from "../components/AppointmentForm";
 
 
+
+
 const Home = () => {
   const {appointments, dispatch} = useAppointmentsContext()
   
