@@ -1,2 +1,2 @@
 # TrimCheck
- Barber Appointment System
+ Barber Appointment System using the MERN Stack
