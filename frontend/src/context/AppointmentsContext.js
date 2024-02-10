@@ -1,3 +1,5 @@
+// Make sure the local state is up to date with the database
+
 import { createContext, useReducer } from "react";
 
  export const AppointmentsContext = createContext()
