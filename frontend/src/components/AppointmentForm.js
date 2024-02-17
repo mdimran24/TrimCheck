@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useAppointmentsContext } from "../hooks/useAppointmentsContext";
+import { useAuthContext } from "../hooks/useAuthContext"
 
 const AppointmentForm = () => {
   const { dispatch } = useAppointmentsContext();
+
+  const { user }= useAuthContext()
+
   const [appointee, setAppointee] = useState("");
   const [date, setDate] = useState("");
   const [barber, setBarber] = useState("");
@@ -11,15 +15,22 @@ const AppointmentForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!user) {
+      setError('You must be logged in')
+      return
+    }
+
     const appointment = { appointee, date, barber };
 
-    const response = await fetch("/api/appointments", {
-      method: "POST",
+    const response = await fetch('/api/appointments', {
+      method: 'POST',
       body: JSON.stringify(appointment),
       headers: {
-        "Content-Type": "application/json",
-      },
-    });
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
+      }
+    })
+
     const json = await response.json();
 
     if (!response.ok) {

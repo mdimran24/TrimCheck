@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useAppointmentsContext } from "../hooks/useAppointmentsContext";
+import { useAuthContext } from "../hooks/useAuthContext"
 
 import AppointmentDetails from '../components/AppointmentDetails'
 import AppointmentForm from "../components/AppointmentForm";
@@ -9,10 +10,13 @@ import AppointmentForm from "../components/AppointmentForm";
 
 const Home = () => {
   const {appointments, dispatch} = useAppointmentsContext()
+  const {user} = useAuthContext()
   
   useEffect(() => {
     const fetchAppointments = async () => {
-      const response = await fetch("/api/appointments");
+      const response = await fetch("/api/appointments", {
+        headers: {'Authorization': `Bearer ${user.token}`},
+      });
       const json = await response.json();
 
       if (response.ok) {
@@ -20,8 +24,10 @@ const Home = () => {
       }
     };
 
+    if(user){
     fetchAppointments();
-  }, []);
+    }
+  }, [dispatch, user]);
 
   return (
     <div className="home">
