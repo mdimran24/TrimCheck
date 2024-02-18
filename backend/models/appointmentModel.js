@@ -14,6 +14,10 @@ const appointmentSchema = new Schema({
     barber:{
         type: String,
         require: true
+    },
+    user_id: {
+        type: String,
+        require: true
     }
 
 }, { timestamps: true})

@@ -3,7 +3,9 @@ const mongoose = require ('mongoose')
 
 //get all appointments
 const getAppointments = async (req, res) => {
-    const appointments = await Appointment.find({}).sort({createdAt: -1})
+    const user_id = req.user._id
+
+    const appointments = await Appointment.find({ user_id }).sort({createdAt: -1})
 
     res.status(200).json(appointments)
 }
@@ -11,6 +13,7 @@ const getAppointments = async (req, res) => {
 
 //get a single appointment
 const getAppointment = async (req, res) => {
+
     const { id } = req.params
     
     if(!mongoose.Types.ObjectId.isValid(id)){
@@ -32,8 +35,24 @@ const getAppointment = async (req, res) => {
 const createAppointment = async (req, res) => {
     const {appointee, date, barber} = req.body
 
+    let emptyFields = []
+
+    if(!appointee) {
+        emptyFields.push('appointee')
+    }
+    if(!date) {
+        emptyFields.push('date')
+    }
+    if(!barber) {
+        emptyFields.push('barber')
+    }
+    if(emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
+    }
+
     try { 
-        const appointment = await Appointment.create({ appointee, date, barber })
+        const user_id = req.user._id
+        const appointment = await Appointment.create({ appointee, date, barber, user_id })
         res.status(200).json(appointment)
     } catch (error) {
         res.status(400).json({error: error.message})

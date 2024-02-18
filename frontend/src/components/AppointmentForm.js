@@ -20,6 +20,11 @@ const AppointmentForm = () => {
       return
     }
 
+    if (barber == "") {
+      setError('Select A Barber')
+      return
+    }
+
     const appointment = { appointee, date, barber };
 
     const response = await fetch('/api/appointments', {
@@ -67,12 +72,12 @@ const AppointmentForm = () => {
 
       <label>Barber:</label>
       <div className="custom-select">
-      <select id="barbers" onChange={(e) => setBarber(e.target.value)}
-        value={barber}>
+      <select id="barbers" onChange={(e) => setBarber(e.target.value)} value={barber}>
+        <option> -- Select A Barber -- </option>
         <option value="Raz">Raz</option>
         <option value="Tav">Tav</option>
         <option value="Ali">Ali</option>
-        <option value="negassi">Negassi</option>
+        <option value="Negassi">Negassi</option>
       </select>
       </div>
 
