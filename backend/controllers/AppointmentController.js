@@ -39,15 +39,25 @@ const createAppointment = async (req, res) => {
 
     if(!appointee) {
         emptyFields.push('appointee')
+        res.status(400).json({ error: 'Please fill in appointee field'})
     }
     if(!date) {
         emptyFields.push('date')
+        res.status(400).json({ error: 'Please fill in date field'})
     }
     if(!barber) {
         emptyFields.push('barber')
+        res.status(400).json({ error: 'Please fill in time field'})
     }
-    if(emptyFields.length > 0) {
-        return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
+    // if(emptyFields.length > 0) {
+    //     return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
+    // }
+
+    const bookedAppointment = await Appointment.findOne({ date: date, barber: barber })
+    console.log(bookedAppointment)
+
+    if(bookedAppointment){
+        return res.status(400).json({error: 'Appointment already booked'})
     }
 
     try { 
