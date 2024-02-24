@@ -28,15 +28,14 @@ const AppointmentDetails = ({ appointment }) => {
     }
     // const time = appointment.date.getHours() + ':' + appointment.date.getMinute();
     const dateTime  = new Date(appointment.date)
-    const time = dateTime.getHours() + ':' + dateTime.getMinutes();
-    const date = dateTime.getDate() + '/' + dateTime.getMonth() + '/' + dateTime.getFullYear();
+
 
     return (
         <div className="appointment-details">
-            <h4><strong>Appointee: </strong>{appointment.appointee}</h4>
-            <p><strong>Date: </strong>{date}</p>
-            <p><strong>Time: </strong>{time}</p>
-            <p><strong>Barber: </strong>{appointment.barber}</p>
+            <h4><strong>Appointment At: </strong>{dateTime.toLocaleDateString()}</h4>
+            <p><strong>Time: </strong>{dateTime.toLocaleTimeString()}</p>
+            <p><strong>Appointee Name: </strong>{appointment.appointee}</p>
+            <p><strong>Selected Barber: </strong>{appointment.barber}</p>
             {/* <p>{appointment.createdAt}</p> */}
             <span onClick={handleClick}>delete</span>
         </div>
