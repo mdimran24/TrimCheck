@@ -24,12 +24,13 @@ const AppointmentForm = () => {
       const json = await response.json()
 
       if (response.ok) {
+
         setAppointee(json.firstName + " " + json.lastName)
 
       }
     }
 
-    if(appointee != null){
+    if(user){
       fetchUser();
     }
   }, []);
@@ -71,9 +72,10 @@ const AppointmentForm = () => {
       setDate("");
       setTime("")
       setBarber("");
-      alert("New Appointment Added:", json);
+      alert("New Appointment Added:", json.date);
       console.log("New Appointment Added:", json);
       dispatch({ type: "CREATE_APPOINTMENT", payload: json });
+      window.location.reload();
     }
   };
 

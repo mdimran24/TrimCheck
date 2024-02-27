@@ -64,4 +64,20 @@ const signupUser = async (req, res) => {
     }
 }
 
-module.exports = {signupUser, loginUser, getUsers, getUser}
+// signup barber
+const signupBarber = async (req, res) => {
+    const {firstName, lastName, email, password, barber} = req.body
+
+    try{
+        const user = await User.signup(firstName, lastName, email, password, barber)
+
+        // create token
+        const token = createToken(user._id)
+        
+        res.status(200).json({email, token})
+    } catch(error) {
+        res.status(400).json({error: error.message})
+    }
+}
+
+module.exports = {signupUser, signupBarber, loginUser, getUsers, getUser}

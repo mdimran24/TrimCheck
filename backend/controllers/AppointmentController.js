@@ -10,6 +10,14 @@ const getAppointments = async (req, res) => {
     res.status(200).json(appointments)
 }
 
+//get all appointments
+const getAppointmentsforBarber = async (req, res) => {
+    const { barber } = req.params
+
+    const appointments = await Appointment.find({ barber: barber }).sort({createdAt: -1})
+
+    res.status(200).json(appointments)
+}
 
 //get a single appointment
 const getAppointment = async (req, res) => {
@@ -111,5 +119,6 @@ module.exports = {
     getAppointments,
     createAppointment,
     deleteAppointment,
-    updateAppointment
+    updateAppointment,
+    getAppointmentsforBarber
 }

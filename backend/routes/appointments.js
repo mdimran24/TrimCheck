@@ -2,6 +2,7 @@ const express = require('express')
 const {
     getAppointment,
     getAppointments,
+    getAppointmentsforBarber,
     createAppointment,
     updateAppointment,
     deleteAppointment
@@ -18,6 +19,9 @@ router.get('/', getAppointments)
 
 //Get a single appointment
 router.get('/:id', getAppointment)
+
+//Get appointments for barber
+router.get('/barber/:barber', getAppointmentsforBarber)
 
 //Post an Appointment
 router.post('/', createAppointment)

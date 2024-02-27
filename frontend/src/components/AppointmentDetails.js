@@ -37,7 +37,7 @@ const AppointmentDetails = ({ appointment }) => {
             <p><strong>Appointee Name: </strong>{appointment.appointee}</p>
             <p><strong>Selected Barber: </strong>{appointment.barber}</p>
             {/* <p>{appointment.createdAt}</p> */}
-            <span onClick={handleClick}>delete</span>
+            <span onClick={handleClick}>Cancel</span>
         </div>
     )
 }
