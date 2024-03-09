@@ -1,6 +1,8 @@
 import { useAppointmentsContext } from "../hooks/useAppointmentsContext"
 import { useAuthContext } from "../hooks/useAuthContext"
 
+import UpdateModal from "./UpdateModal"
+
 const AppointmentDetails = ({ appointment }) => {
     const { dispatch } = useAppointmentsContext()
 
@@ -29,15 +31,16 @@ const AppointmentDetails = ({ appointment }) => {
     // const time = appointment.date.getHours() + ':' + appointment.date.getMinute();
     const dateTime  = new Date(appointment.date)
 
-
     return (
-        <div className="appointment-details">
-            <h4><strong>Appointment At: </strong>{dateTime.toLocaleDateString()}</h4>
+        <div className="bg-white rounded m-10 relative shadow-lg p-5 text-gray-800">
+            <h4 className="text-xl text-blue-600"><strong>Appointment At: </strong>{dateTime.toLocaleDateString()}</h4>
             <p><strong>Time: </strong>{dateTime.toLocaleTimeString()}</p>
             <p><strong>Appointee Name: </strong>{appointment.appointee}</p>
             <p><strong>Selected Barber: </strong>{appointment.barber}</p>
             {/* <p>{appointment.createdAt}</p> */}
-            <span onClick={handleClick}>Cancel</span>
+            <span className= "absolute top-5 right-5 cursor-pointer bg-red-600 text-white p-1 rounded-xl" onClick={handleClick}>Cancel</span>
+            <UpdateModal/>
+
         </div>
     )
 }

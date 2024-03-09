@@ -10,22 +10,22 @@ const Navbar = () => {
     logout();
   };
   return (
-    <header>
-      <div className="container">
+    <header className="bg-white">
+      <div className=" max-w-[1400px] m-auto pt-3 pr-5 flex items-center justify-between text-gray-700">
         <Link to="/">
-          <h1>Trim Check</h1>
+          <h1 className="text-2xl font-bold">Trim Check</h1>
         </Link>
-        <nav>
+        <nav className="flex items-center ">
           {user && (
-          <div>
-            <span>{user.email}</span>
-            <button onClick={handleClick}>Logout</button>
-          </div>
+            <div>
+              <span>{user.email}</span>
+              <button className="ml-2" onClick={handleClick}>Logout</button>
+            </div>
           )}
 
-          {!user && (<div>  
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
+          {!user && (<div>
+            <Link className={"ml-2"} to="/login">Login</Link>
+            <Link className={"ml-2"} to="/signup">Signup</Link>
           </div>
           )}
         </nav>

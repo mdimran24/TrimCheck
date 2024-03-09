@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Navbar/>
-        <div className="pages">
+        <div className=" max-w-[1400px] p-5 m-auto">
           <Routes>
             <Route
               path="/"

@@ -5,6 +5,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 import AppointmentDetails from "../components/AppointmentDetails";
 import AppointmentForm from "../components/AppointmentForm";
+import UpdateModal from "../components/UpdateModal";
 
 const Home = () => {
   const { appointments, dispatch } = useAppointmentsContext();
@@ -56,8 +57,8 @@ const Home = () => {
   }, [dispatch, user, barber ]);
 
   return (
-    <div className="home">
-      <div className="appointment">
+    <div className=" grid grid-cols-2 gap-24">
+      <div className="appointment col-span-2">
         <h2>Your Appointments</h2>
         {appointments &&
           appointments.map((appointment) => (

@@ -83,7 +83,7 @@ const AppointmentForm = () => {
 
   return (
     <form className="create" onSubmit={handleSubmit}>
-      <h3>Add a New Appointment</h3>
+      <h3>Book Appointment</h3>
 
       <DatePicker
         className="m-2"
@@ -136,8 +136,9 @@ const AppointmentForm = () => {
         </select>
       </div>
 
-      <button>Add Appointment</button>
-      {error && <div className="error">{error}</div>}
+
+      <button className="bg-blue-500 text-white mt-2 p-2 rounded cursor: pointer">Book Appointment</button>
+      {error && <div className=" p-3 bg-red-100 border-b-2 border-b-red-400 text-rose-600 mt-5 m-0">{error}</div>}
     </form>
   );
 };
