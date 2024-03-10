@@ -11,15 +11,15 @@ const Navbar = () => {
   };
   return (
     <header className="bg-white">
-      <div className=" max-w-[1400px] m-auto pt-3 pr-5 flex items-center justify-between text-gray-700">
+      <div className="max-w-[1400px] m-auto p-5 pr-5 flex items-center justify-between text-gray-700">
         <Link to="/">
-          <h1 className="text-2xl font-bold">Trim Check</h1>
+          <h1 className="text-3xl font-bold ">Trim Check</h1>
         </Link>
-        <nav className="flex items-center ">
+        <nav className="flex items-center text-slate-700">
           {user && (
             <div>
               <span>{user.email}</span>
-              <button className="ml-2" onClick={handleClick}>Logout</button>
+              <button className="ml-2 border-2 p-1 rounded cursor-pointer border-red-500 " onClick={handleClick}>Logout</button>
             </div>
           )}
 

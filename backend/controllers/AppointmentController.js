@@ -1,11 +1,29 @@
 const Appointment = require('../models/appointmentModel')
 const mongoose = require ('mongoose')
 
+const currentDate = new Date();
+const checkIfPast = (inputDate) => {
+    const givenDate = new Date(inputDate);
+    return(givenDate < currentDate);
+
+  };
 //get all appointments
 const getAppointments = async (req, res) => {
     const user_id = req.user._id
 
-    const appointments = await Appointment.find({ user_id }).sort({createdAt: -1})
+    
+
+    const appointments = await Appointment.find({ user_id }).sort({date: 1})
+    
+    appointments.forEach(function(appointment){
+        const dateTime = new Date(appointment.date);
+        if(checkIfPast(dateTime)){
+            appointments.splice(appointments.indexOf(appointment), 1)
+            appointments.push(appointment);
+        
+        }
+    });
+
 
     res.status(200).json(appointments)
 }
@@ -14,7 +32,7 @@ const getAppointments = async (req, res) => {
 const getAppointmentsforBarber = async (req, res) => {
     const { barber } = req.params
 
-    const appointments = await Appointment.find({ barber: barber }).sort({createdAt: -1})
+    const appointments = await Appointment.find({ barber: barber }).sort({date: 1})
 
     res.status(200).json(appointments)
 }
@@ -45,6 +63,9 @@ const createAppointment = async (req, res) => {
 
     let emptyFields = []
 
+
+
+
     if(!appointee) {
         emptyFields.push('appointee')
         res.status(400).json({ error: 'Please fill in appointee field'})
@@ -57,15 +78,16 @@ const createAppointment = async (req, res) => {
         emptyFields.push('barber')
         res.status(400).json({ error: 'Please fill in time field'})
     }
-    // if(emptyFields.length > 0) {
-    //     return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
-    // }
 
     const bookedAppointment = await Appointment.findOne({ date: date, barber: barber })
-    console.log(bookedAppointment)
+    // console.log(bookedAppointment)
 
     if(bookedAppointment){
         return res.status(400).json({error: 'Appointment already booked'})
+    }
+
+    if(checkIfPast(date)){
+        return res.status(400).json({ error: 'Date has passed'})
     }
 
     try { 

@@ -7,7 +7,10 @@ import { DatePicker, message, TimePicker } from "antd";
 
 import moment from "moment";
 
-const AppointmentForm = () => {
+const AppointmentForm = ({ appointment }) => {
+  // if(appointment){
+  //   console.log(appointment.appointee)
+  // }
   const { dispatch } = useAppointmentsContext();
 
   const { user } = useAuthContext();
@@ -24,18 +27,16 @@ const AppointmentForm = () => {
       const json = await response.json()
 
       if (response.ok) {
-
         setAppointee(json.firstName + " " + json.lastName)
-
       }
     }
-
     if(user){
       fetchUser();
     }
   }, []);
-  
-  const handleSubmit = async (e) => {
+
+
+  const handleCreateSubmit = async (e) => {
     e.preventDefault();
 
     if (!user) {
@@ -48,8 +49,7 @@ const AppointmentForm = () => {
       return;
     }
     
-    
-    
+   
     const appointment = { appointee, date, barber };
 
     const response = await fetch("/api/appointments", {
@@ -79,14 +79,46 @@ const AppointmentForm = () => {
     }
   };
 
+  const handleUpdateSubmit = async () => {
+    if (!user) {
+      setError("You must be logged in");
+      return;
+    }
+
+    if (barber == "") {
+      setError("Select A Barber");
+      return;
+    }
+
+    const updatedAppointment = { appointee, date, barber };
+    
+    const response = await fetch('./api/appointments/' + appointment._id, {
+        method: 'PATCH',
+        body: JSON.stringify(updatedAppointment),
+        headers:{
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${user.token}`,
+        }
+    })
+    const json = await response.json()
+
+    if (response.ok){
+        dispatch({type: 'UPDATE_APPOINTMENT', payload: json})
+    }
+  }
+
+
+
+
+
 
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
-      <h3>Book Appointment</h3>
+    <form className="mt-2 m-auto p-4 bg-white rounded min-w-[500px]" onSubmit={appointment ? handleUpdateSubmit : handleCreateSubmit}>
+      <h3 className="font-bold text-xl">Book Appointment</h3>
 
       <DatePicker
-        className="m-2"
+        className="mt-2"
         format="DD-MM-YYYY"
         value={date}
         onChange={(date) => {
@@ -120,13 +152,14 @@ const AppointmentForm = () => {
         }}
       />
 
-      <label>Barber:</label>
+      <p className=" text-lg">Barber:</p>
       <div className="custom-select">
         <select
           id="barbers"
           onChange={(e) => setBarber(e.target.value)}
           value={barber}
           required="required"
+          className="mt-2"
         >
           <option>Select Barber</option>
           <option value="Raz">Raz</option>
@@ -137,7 +170,7 @@ const AppointmentForm = () => {
       </div>
 
 
-      <button className="bg-blue-500 text-white mt-2 p-2 rounded cursor: pointer">Book Appointment</button>
+      <button className="mt-4 bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Book Appointment</button>
       {error && <div className=" p-3 bg-red-100 border-b-2 border-b-red-400 text-rose-600 mt-5 m-0">{error}</div>}
     </form>
   );

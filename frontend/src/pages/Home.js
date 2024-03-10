@@ -57,9 +57,11 @@ const Home = () => {
   }, [dispatch, user, barber ]);
 
   return (
-    <div className=" grid grid-cols-2 gap-24">
+    <>
+    <h2 className="text-xl  font-bold m-4">Your Appointments</h2>
+    <div className=" grid grid-cols-3 gap-2">
       <div className="appointment col-span-2">
-        <h2>Your Appointments</h2>
+        
         {appointments &&
           appointments.map((appointment) => (
             <AppointmentDetails
@@ -71,6 +73,7 @@ const Home = () => {
       {!barber ? (<AppointmentForm />) : (null)}
       
     </div>
+    </>
   );
 };
 

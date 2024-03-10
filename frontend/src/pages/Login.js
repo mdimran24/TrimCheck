@@ -14,8 +14,8 @@ const Login = () => {
     }
 
     return (
-        <form className = "login" onSubmit ={handleSubmit}>
-            <h3>Login</h3>
+        <form className = " max-w-[400px] mt-10 m-auto p-5 bg-white rounded" onSubmit ={handleSubmit}>
+            <h3 className='text-2xl font-semibold py-4 '>Login</h3>
 
             <label>Email:</label>
             <input
@@ -31,7 +31,7 @@ const Login = () => {
                 value={password}
             />
 
-            <button disabled={isLoading}>Login</button>
+            <button className="mt-4 bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 w-[100%]" disabled={isLoading}>Login</button>
             {error && <div className='error'>{error}</div>}
         </form>
     )

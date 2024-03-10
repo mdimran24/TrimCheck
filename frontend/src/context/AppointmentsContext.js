@@ -18,6 +18,10 @@ export const appointmentsReducer = (state, action) => {
             return {
                 appointments: state.appointments.filter(a => a._id !== action.payload._id)
             }
+        case 'UPDATE_APPOINTMENT':
+            return {
+                appointments: state.appointments.filter(a => a._id !== action.payload._id)
+            }
         default:
             return state
     }

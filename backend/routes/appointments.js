@@ -26,10 +26,10 @@ router.get('/barber/:barber', getAppointmentsforBarber)
 //Post an Appointment
 router.post('/', createAppointment)
 
-// DELETE a appointment
+// DELETE an appointment
 router.delete('/:id', deleteAppointment)
 
-// UPDATE a appointment
+// UPDATE an appointment
 router.patch('/:id', updateAppointment)
 
 
