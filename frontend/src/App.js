@@ -4,6 +4,7 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import RateBarber from "./pages/RateBarber";
 import Navbar from './components/Navbar'
 function App() {
   const { user } = useAuthContext()
@@ -24,6 +25,10 @@ function App() {
             <Route
               path="/signup"
               element={!user ? <Signup/> : <Navigate to="/"/>}
+              />
+            <Route
+              path="/ratebarber"
+              element={user ? <RateBarber/> : <Navigate to="/"/>}
               />
           </Routes>
 

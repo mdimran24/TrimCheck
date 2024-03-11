@@ -15,17 +15,21 @@ const Navbar = () => {
         <Link to="/">
           <h1 className="text-3xl font-bold ">Trim Check</h1>
         </Link>
+        
         <nav className="flex items-center text-slate-700">
+        <Link className={"ml-3"} to="/ratebarber">Rate Barber</Link>
           {user && (
             <div>
-              <span>{user.email}</span>
-              <button className="ml-2 border-2 p-1 rounded cursor-pointer border-red-500 " onClick={handleClick}>Logout</button>
+              <span className="ml-3">{user.email}</span>
+              <button className="ml-3 border-2 p-1 rounded cursor-pointer border-red-500 " onClick={handleClick}>Logout</button>
             </div>
           )}
+           
 
           {!user && (<div>
-            <Link className={"ml-2"} to="/login">Login</Link>
-            <Link className={"ml-2"} to="/signup">Signup</Link>
+            <Link className={"ml-3"} to="/login">Login</Link>
+            <Link className={"ml-3"} to="/signup">Signup</Link>
+           
           </div>
           )}
         </nav>

@@ -23,7 +23,13 @@ const userSchema = new Schema({
     },
     barber: {
         type: String,
-    }
+    },
+    ratings: [
+        {
+            star: Number,
+        }
+    ],
+
 })
 
 // static sign up method
