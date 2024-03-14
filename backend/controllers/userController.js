@@ -86,9 +86,9 @@ const rateUser = async (req, res) => {
     // if(!mongoose.Types.ObjectId.isValid(email)){
     //     return res.status(404).json({error:'No such user'})
     // }
-
+    console.log(req.body)
     const user = await User.findOneAndUpdate({ email }, {
-        $push: { ratings: req.body.ratings }
+        $push: { ratings: req.body }
     })
 
     if(!user){

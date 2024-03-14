@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useAuthContext } from "../hooks/useAuthContext";
-const { dispatch } = useAuthContext()
+
 
 const RateBarber = () => {
 
@@ -9,6 +9,8 @@ const RateBarber = () => {
   const [rated, setRated] = React.useState();
   const { user } = useAuthContext();
   const [error, setError] = useState(null);
+
+  const { dispatch } = useAuthContext()
 
   const handleSubmit = async () => {
     if (!user) {
@@ -21,11 +23,15 @@ const RateBarber = () => {
       return;
     }
 
-    const profile = { barber, rated };
     
-    const response = await fetch('./api/user/ratebarber' + barber, {
+    const star = 3
+    const ratings = [{star}]
+    
+
+    
+    const response = await fetch('./api/user/' + barber, {
         method: 'PATCH',
-        body: JSON.stringify(profile),
+        body: JSON.stringify(ratings),
         headers:{
             "Content-Type": "application/json",
             'Authorization': `Bearer ${user.token}`,
@@ -33,9 +39,6 @@ const RateBarber = () => {
     })
     const json = await response.json()
 
-    if (response.ok){
-        dispatch({type: 'UPDATE_USER', payload: json})
-    }
   }
 
 
@@ -46,7 +49,7 @@ const RateBarber = () => {
         <div className="appointment col-span-2">
           <form
             className="mt-2 m-auto p-4 bg-white rounded min-w-[500px]"
-            // onSubmit={}
+            onSubmit={handleSubmit}
           >
             <p className=" text-lg">Barber:</p>
             <div className="custom-select">
@@ -64,6 +67,8 @@ const RateBarber = () => {
                 <option value="negassi@gmail.com">Negassi</option>
               </select>
             </div>
+            <button className="mt-4 bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ">Book Appointment</button>
+
           </form>
         </div>
       </div>

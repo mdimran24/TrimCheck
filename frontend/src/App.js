@@ -28,7 +28,7 @@ function App() {
               />
             <Route
               path="/ratebarber"
-              element={user ? <RateBarber/> : <Navigate to="/"/>}
+              element={<RateBarber/> }
               />
           </Routes>
 

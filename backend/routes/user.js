@@ -15,7 +15,7 @@ router.post('/signup', signupUser)
 router.post('/signup-barber', signupBarber)
 
 //rate user route
-router.patch('ratebarber/:email', rateUser)
+router.patch('/:email', rateUser)
 
 // Get All Users
 router.get('/', getUsers)
