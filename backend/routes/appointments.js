@@ -5,7 +5,8 @@ const {
     getAppointmentsforBarber,
     createAppointment,
     updateAppointment,
-    deleteAppointment
+    deleteAppointment,
+    getAllAppointments
 } = require('../controllers/appointmentController')
 const requireAuth = require('../middleware/requireAuth')
 
@@ -16,6 +17,9 @@ router.use(requireAuth)
 
 // GET All appointments
 router.get('/', getAppointments)
+
+// GET All appointments
+router.get('/all', getAllAppointments)
 
 //Get a single appointment
 router.get('/:id', getAppointment)

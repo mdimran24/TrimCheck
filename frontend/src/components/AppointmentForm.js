@@ -4,22 +4,38 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useEffect } from "react";
 
 import { DatePicker, message, TimePicker } from "antd";
+import dayjs from 'dayjs';
 
-import moment from "moment";
 
-const AppointmentForm = ({ appointment }) => {
-  // if(appointment){
-  //   console.log(appointment.appointee)
-  // }
+
+
+
+const AppointmentForm = ({ appointment}) => {
+
   const { dispatch } = useAppointmentsContext();
 
   const { user } = useAuthContext();
+
+
 
   const [appointee, setAppointee] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [barber, setBarber] = useState("");
   const [error, setError] = useState(null);
+
+
+
+  const disabledDate = (current) => {
+    // Can not select days before today and today
+    return current < dayjs().endOf('day');
+  };
+
+  const disabledDateTime = () => ({
+    disabledDate: disabledDate,
+    disabledHours: () => [0,1,2,3,4,5,6,7,8,19,20,21,22,23]
+    
+  });
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -72,10 +88,10 @@ const AppointmentForm = ({ appointment }) => {
       setDate("");
       setTime("")
       setBarber("");
-      alert("New Appointment Added:", json.date);
-      console.log("New Appointment Added:", json);
+      alert("Appointment Booked" );
+      console.log("New Appointment Added:",  json);
       dispatch({ type: "CREATE_APPOINTMENT", payload: json });
-      window.location.reload();
+
     }
   };
 
@@ -107,50 +123,24 @@ const AppointmentForm = ({ appointment }) => {
     }
   }
 
-
-
-
-
-
-
   return (
-    <form className="mt-2 m-auto p-4 bg-white rounded min-w-[500px]" onSubmit={appointment ? handleUpdateSubmit : handleCreateSubmit}>
-      <h3 className="font-bold text-xl">Book Appointment</h3>
+    <form className="mt-2 m-auto p-4 bg-white rounded lg:min-w-[500px]" onSubmit={appointment ? handleUpdateSubmit : handleCreateSubmit}>
+      <h3 className="font-bold text-xl text-sky-600">Book Appointment</h3>
 
       <DatePicker
+        showTime 
         className="mt-2"
-        format="DD-MM-YYYY"
-        value={date}
-        onChange={(date) => {
-          setDate(date)
-          if(time != ""){
-            const timeSlot = (moment(time.toISOString()).format("hh:mm:ss"))    
-            const day = (moment(date.toISOString()).format("YYYY-MM-DD"))
-  
-            const dateTime = moment(day + ' ' + timeSlot, 'YYYY-MM-DD HH:mm');
-            setDate(dateTime)
-            }
-  
-          
-        }}
-      />
-      <TimePicker
-        format="HH mm"
-        className="m-2"
+        format="DD/MM/YYYY HH:mm"
         minuteStep={30}
-        value={time}
-        onChange = {(time) => {
-          setTime(time)
-          if(date != ""){
-          const timeSlot = (moment(time.toISOString()).format("hh:mm:ss"))    
-          const day = (moment(date.toISOString()).format("YYYY-MM-DD"))
-
-          const dateTime = moment(day + ' ' + timeSlot, 'YYYY-MM-DD HH:mm');
-          setDate(dateTime)
-          }
-
+        value={date}
+        disabledDate={disabledDate}
+        disabledTime={disabledDateTime}
+        hideDisabledOptions= {true}
+        onChange={(date) => {
+          setDate(date)  
         }}
       />
+
 
       <p className=" text-lg">Barber:</p>
       <div className="custom-select">
@@ -172,6 +162,7 @@ const AppointmentForm = ({ appointment }) => {
 
       <button className="mt-4 bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Book Appointment</button>
       {error && <div className=" p-3 bg-red-100 border-b-2 border-b-red-400 text-rose-600 mt-5 m-0">{error}</div>}
+      
     </form>
   );
 };

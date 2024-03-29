@@ -21,7 +21,7 @@ module.exports = {
       'fade-in-up': 'fade-in-up 1.25s ease-out'
     },
       backgroundImage: {
-
+        'banner': 'url(/src/images/banner.jpg)',
       },
     },
   },

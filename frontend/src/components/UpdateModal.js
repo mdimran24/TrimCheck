@@ -17,7 +17,7 @@ const UpdateModal = ({ appointment }) => {
     return (
         <>
       <button
-        className=" absolute top-5 right-5 bg-green-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-green-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        className="lg:absolute lg:top-5 lg:right-5 bg-green-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-green-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
         type="button"
         onClick={() => setShowModal(true)}
       >

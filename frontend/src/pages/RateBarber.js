@@ -23,7 +23,6 @@ const RateBarber = () => {
       .then(responses => Promise.all(responses.map(response => response.json())))
       .then(data => {
         setBarbers(data)
-        // console.log(data)
       })
       .catch(error => {
         // Handle any errors
@@ -90,10 +89,10 @@ const RateBarber = () => {
             className="my-2 w-[100%] border rounded-md"
           >
             <option>Select Barber</option>
-            <option value="raz@gmail.com">Raz</option>
-            <option value="tav@gmail.com">Tav</option>
             <option value="ali@gmail.com">Ali</option>
             <option value="negassi@gmail.com">Negassi</option>
+            <option value="raz@gmail.com">Raz</option>
+            <option value="tav@gmail.com">Tav</option>
           </select>
         </div>
 

@@ -23,9 +23,9 @@ const BarberDetails = ({ barber }) => {
   return (
     <div className=" max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-white-900 dark:text-slate-900">
       <img
-        src=""
+        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
         alt=""
-        className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square"
+        className="w-32 h-32 mx-auto rounded-2xl dark:bg-gray-500"
       />
       <div className="space-y-4 text-center divide-y dark:divide-gray-700">
         <div className="my-2 space-y-1">
