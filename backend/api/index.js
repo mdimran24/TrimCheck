@@ -4,9 +4,9 @@ require('dotenv').config()
 // express app
 const app = express()
 const mongoose = require('mongoose')
-const appointmentRoutes = require('./routes/appointments')
-const pricesRoutes = require("./routes/prices")
-const userRoutes = require('./routes/user')
+const appointmentRoutes = require('../routes/appointments')
+const pricesRoutes = require("../routes/prices")
+const userRoutes = require('../routes/user')
 
 //middleware
 app.use(express.json())
