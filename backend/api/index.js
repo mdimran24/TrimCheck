@@ -25,10 +25,15 @@ app.use('/api/prices', pricesRoutes)
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
     // listen for requests
+if(process.env.PORT){
 app.listen(process.env.PORT, () =>{
-    console.log('Listening on Port 4000')
+    console.log('Listening on Port ' + process.env.PORT)
 })
+}
+
+module.exports = app
 })
+
 .catch((error) => {
     console.log(error)
 })
