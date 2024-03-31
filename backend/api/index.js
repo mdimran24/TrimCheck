@@ -9,11 +9,6 @@ const appointmentRoutes = require('../routes/appointments')
 const pricesRoutes = require("../routes/prices")
 const userRoutes = require('../routes/user')
 
-app.use(cors({
-    origin: "https://trim-check-backend.vercel.app/",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-  }));
 
 //middleware
 app.use(express.json())
