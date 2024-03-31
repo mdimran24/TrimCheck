@@ -9,6 +9,7 @@ import PricesDetails from "../components/PricesDetails";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
+
 const Home = () => {
   const { appointments, dispatch } = useAppointmentsContext();
   const [ allAppointments, setAllAppointments] = useState();
@@ -114,7 +115,7 @@ const Home = () => {
   return (
     <>
       
-      <div className=" grid grid-cols-1 lg:grid-cols-3 lg:gap-2 mt-24 ">
+      <div className=" grid grid-cols-1 lg:grid-cols-3 lg:gap-2 mt-24 m-4">
         <div className="appointment col-span-2">
           <div className="lg:h-[65vh] hidden lg:block">
           <Calendar

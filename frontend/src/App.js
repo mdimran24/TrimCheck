@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <div className=" m-auto">
+        <div className=" m-auto ">
           <Routes>
             <Route
               path="/"

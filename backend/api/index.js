@@ -21,6 +21,7 @@ app.use('/api/appointments', appointmentRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/prices', pricesRoutes)
 
+
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
@@ -38,4 +39,3 @@ module.exports = app
     console.log(error)
 })
 
-export default app;

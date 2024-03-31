@@ -59,19 +59,9 @@ const RateBarber = () => {
   };
 
   return (
-    <>
-            <div className="mt-10 grid grid-cols-4 gap-2">
-        {barbers &&
-          barbers.map((barber) => (
-            <BarberDetails
-              barber={barber}
-              key={barber._id}
-            />
-          ))}
-      </div>
-
+    <div className="m-4">
       <form
-        className="mt-10 m-auto p-4 bg-white rounded min-w-[500px] max-w-md"
+        className="mt-24 mx-auto m-4 p-4 bg-white rounded lg:min-w-[500px] lg:max-w-md"
         onSubmit={handleSubmit}
       >
         <h2 className="text-xl font-bold my-4">Rate Your Barber</h2>
@@ -96,14 +86,14 @@ const RateBarber = () => {
           </select>
         </div>
 
-        <div className=" max-w-md whitespace-nowrap overflow-hidden transition-all mx-auto mt-8">
+        <div className="max-w-md whitespace-nowrap overflow-hidden transition-all mx-auto mt-8">
         
-          <div className="grid grid-cols-5 gap-10">
+          <div className="grid grid-cols-5 gap-5 lg:gap-10">
             {[1, 2, 3, 4, 5].map((value) => {
               return (
 								<div
 									key={value}
-									className={`grid place-content-center  h-12 w-12 rounded-full cursor-pointer  transition-all ${
+									className={`grid place-content-center  h-12  rounded-full cursor-pointer  transition-all ${
 										value === star
 											? "bg-blue-500  text-white"
 											: "text-white hover:bg-blue-600 hover:text-white  bg-blue-900"
@@ -120,13 +110,27 @@ const RateBarber = () => {
           Submit
         </button>
       </form>
-
-
+      <div className="overflow-hidden p-10">
+        <div className="mx-auto max-w-8xl ">
+          <div class=" max-w-full ">
+            <div class="-p-1"></div>
+      <div className="mx-auto items-center grid grid-cols-1 gap-x-32 gap-y-10 sm:gap-y-20 lg:mx-0 lg:max-w-screen lg:grid-cols-4">
+        {barbers &&
+          barbers.map((barber) => (
+            <BarberDetails
+              barber={barber}
+              key={barber._id}
+            />
+          ))}
+      </div>
+      </div>
+      </div>
+      </div>
 
 
       
 
-    </>
+    </div>
   );
 };
 

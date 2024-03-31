@@ -22,6 +22,7 @@ module.exports = {
     },
       backgroundImage: {
         'banner': 'url(/src/images/banner.jpg)',
+        'stylesbanner': 'url(/src/images/stylesbanner.jpg)',
       },
     },
   },
