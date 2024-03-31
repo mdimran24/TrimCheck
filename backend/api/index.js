@@ -12,6 +12,13 @@ const userRoutes = require('../routes/user')
 
 //middleware
 app.use(express.json())
+app.use(cors(
+    {
+        origin: ["https://trimcheck-backend.vercel.app/"],
+        methods: ["POST", "GET", "DELETE", "PATCH"],
+        credentials: true
+    }
+));
 
 app.use((req, res, next) => {
     console.log(req.path, req.method)
