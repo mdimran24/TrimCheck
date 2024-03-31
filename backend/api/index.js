@@ -22,7 +22,6 @@ app.use(cors(
 
 app.use((req, res, next) => {
     console.log(req.path, req.method)
-    res.send("Server is running.")
     next()
 })
 
