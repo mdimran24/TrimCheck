@@ -15,8 +15,10 @@ app.use(express.json())
 
 app.use((req, res, next) => {
     console.log(req.path, req.method)
+    res.send("Server is running.")
     next()
 })
+
 
 //routes
 app.use('/api/appointments', appointmentRoutes)
