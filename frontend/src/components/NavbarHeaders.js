@@ -11,14 +11,6 @@ export const headers = [
     title: "Hair Care",
     url: "/haircare",
   },
-  {
-    title: "Login",
-    url: "/login",
-  },
-  {
-    title: "Sign Up",
-    url: "/signup",
-  },
 
   // {
   //   title: 'About Us',

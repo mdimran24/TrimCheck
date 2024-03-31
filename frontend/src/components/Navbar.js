@@ -27,11 +27,7 @@ const Navbar = () => {
         <div className="flex lg:flex-1">
           <a href="/" className="">
             <span className="sr-only">TrimCheck</span>
-            <img
-              className="w-auto h-16 lg:h-[4rem]"
-              src={logo}
-              alt=""
-            />
+            <img className="w-auto h-16 lg:h-[4rem]" src={logo} alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -48,6 +44,14 @@ const Navbar = () => {
           {headers.map((menu, index) => {
             return <MenuItems items={menu} key={index} />;
           })}
+          {!user && (
+            <>
+            <a className="inline-flex w-full justify-center gap-x-1 rounded-md  bg-white px-3 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50"
+              href="/login">Login</a>
+            <a className="inline-flex w-full justify-center gap-x-1 rounded-md  bg-white px-3 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50"
+              href="/signup">Sign Up</a>
+            </>
+          )}
           {user && (
             <div>
               <span className="ml-3">{user.email}</span>

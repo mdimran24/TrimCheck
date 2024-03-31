@@ -109,26 +109,30 @@ const Home = () => {
       });
     });
 
-
-
-
+    let defaultView = "agenda"
+    if(window.screen.width < 1024){
+      defaultView = "agenda"
+    }else{
+      defaultView = "week"
+    }
   return (
     <>
       
       <div className=" grid grid-cols-1 lg:grid-cols-3 lg:gap-2 mt-24 m-4">
         <div className="appointment col-span-2">
-          <div className="lg:h-[65vh] hidden lg:block">
+          <div className="lg:h-[65vh] ">
           <Calendar
             localizer={localizer}
             events={events}
             startAccessor="start"
             endAccessor="end"
-            defaultView="week"
+            defaultView={defaultView}
             showMultiDayTimes
             step={30}
             min={new Date(0, 0, 0, 9, 0, 0)}
             max={new Date(0, 0, 0, 19, 0, 0)}
           />
+
           <div className="m-1 flex justify-center">
           <button className= " bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("Ali")}>Ali</button>
           <button className= "bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("Raz")}>Raz</button>

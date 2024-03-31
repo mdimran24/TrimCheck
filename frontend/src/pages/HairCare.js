@@ -43,13 +43,7 @@ export default function HairCare() {
                       Use Natural, Gentle Shampoo
                       </strong>
                       <br></br>
-                      Your hair deserves to be treated with a product that contains
-                  only natural ingredients that cleanse gently. Avoiding
-                  shampoos with long lists of harsh chemical ingredients is a
-                  must for men’s hair health. Since we’re dedicated to only
-                  using the best natural ingredients in all our products, you
-                  won’t find any petrochemicals, sulfates, parabens, phthalates,
-                  or silicones in either of our shampoos. 
+                      You should treat your hair with a product made entirely of natural ingredients that gently cleanse it. Shampoos with lengthy lists of harsh chemical ingredients should be avoided. essential for healthy male hair. The best natural ingredients are all we use in our products because we're committed to using only those. Hence, neither of our shampoos contains silicones, phthalates, sulphates, parabens, or petrochemicals. 
                     </span>
                   </li>
                   <li className="flex gap-x-3">
@@ -58,14 +52,7 @@ export default function HairCare() {
                         Don’t Shampoo Every Day
                       </strong>
                       <br></br>
-                      Hair health for men is as important as it is for women. A
-                      lot of guys get in the habit of using shampoo every day,
-                      assuming that they should be washing their hair every
-                      single time they hop in the shower. But for many men, this
-                      is simply not the case. The oils your scalp secretes are
-                      meant to nourish your hair, protect it, and keep it
-                      healthy. Shampooing too often strips those oils out,
-                      making your hair look dull, brittle, and weak.
+                      Men's hair health is just as vital as women's. Many men develop the bad habit of using shampoo daily, believing that they should wash their hair each and every time they take a shower. However, for a great deal of men, this is just not the case. The oils that are secreted by your scalp are designed to protect, nourish, and maintain the health of your hair. Shampooing your hair too frequently removes those oils, leaving it looking lifeless, brittle, and dull.
                     </span>
                   </li>
                   <li className="flex gap-x-3">
@@ -73,29 +60,17 @@ export default function HairCare() {
                       <strong className="font-semibold text-cyan-600  sm:text-xl">
                         Use Hair Conditioner
                       </strong>
-                      <br></br>Sorry guys, but shampoo alone isn’t enough for
-                      men’s hair health. Remember: even the most natural shampoo
-                      can remove nourishing oils from your hair, and it doesn’t
-                      do much to protect your hair against day-to-day damage and
-                      the elements. This leaves your hair moisturized, strong,
-                      and shinier over time.{" "}
+                      <br></br>Sorry but shampoo is insufficient to maintain men's hair health. Recall that not even the most natural shampoo can effectively restore your hair's nourishing oils, nor can it effectively shield your hair from environmental factors and daily damage. Over time, this leaves your hair stronger, more hydrated, and glossier.
                     </span>
                   </li>
 
                   <li className="flex gap-x-3">
                     <span>
                       <strong className="font-semibold text-cyan-600  sm:text-xl">
-                        Don’t Shampoo Every Day
+                      Protect hair when swimming
                       </strong>
                       <br></br>
-                      Hair health for men is as important as it is for women. A
-                      lot of guys get in the habit of using shampoo every day,
-                      assuming that they should be washing their hair every
-                      single time they hop in the shower. But for many men, this
-                      is simply not the case. The oils your scalp secretes are
-                      meant to nourish your hair, protect it, and keep it
-                      healthy. Shampooing too often strips those oils out,
-                      making your hair look dull, brittle, and weak.
+                      Wet and condition your hair before swimming to shield it from the damaging effects of chlorine. Put on a form-fitting swim cap and replenish moisture lost in your hair after swimming by using a deep conditioner and shampoo designed specifically for swimmers.
                     </span>
                   </li>
                   <li className="flex gap-x-3">
