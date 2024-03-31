@@ -22,6 +22,7 @@ app.use('/api/user', userRoutes)
 app.use('/api/prices', pricesRoutes)
 
 
+
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
@@ -32,10 +33,11 @@ app.listen(process.env.PORT, () =>{
 })
 }
 
-module.exports = app
+
 })
 
 .catch((error) => {
     console.log(error)
 })
 
+module.exports = app
