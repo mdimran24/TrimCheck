@@ -17,7 +17,7 @@ const UpdateModal = ({ appointment }) => {
     return (
         <>
       <button
-        className="lg:absolute lg:top-5 lg:right-5 bg-green-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-green-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        className="lg:absolute lg:top-5 lg:right-5 bg-green-600 text-white font-bold  text-sm px-4 py-2 rounded shadow hover:bg-green-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
         type="button"
         onClick={() => setShowModal(true)}
       >
@@ -51,7 +51,7 @@ const UpdateModal = ({ appointment }) => {
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 rounded-b">
                   <button
-                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="text-red-500 background-transparent font-bold  px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setShowModal(false)}
                   >

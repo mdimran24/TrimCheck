@@ -7,12 +7,9 @@ const checkIfPast = (inputDate) => {
     return(givenDate < currentDate);
 
   };
-//get all appointments
+//get all of the user's appointments
 const getAppointments = async (req, res) => {
     const user_id = req.user._id
-
-    
-
     const appointments = await Appointment.find({ user_id }).sort({date: 1})
     
     appointments.forEach(function(appointment){
@@ -30,16 +27,13 @@ const getAppointments = async (req, res) => {
 
 //get all appointments
 const getAllAppointments = async (req, res) => {
-
     const appointments = await Appointment.find({}).sort({date: 1})
-
     res.status(200).json(appointments)
 }
+
 const getAppointmentsforBarber = async (req, res) => {
     const { barber } = req.params
-
     const appointments = await Appointment.find({ barber: barber }).sort({date: 1})
-
     res.status(200).json(appointments)
 }
 
@@ -68,9 +62,6 @@ const createAppointment = async (req, res) => {
     const {appointee, date, barber} = req.body
 
     let emptyFields = []
-
-
-
 
     if(!appointee) {
         emptyFields.push('appointee')

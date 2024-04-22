@@ -46,9 +46,9 @@ const Navbar = () => {
           })}
           {!user && (
             <>
-            <a className="inline-flex w-full justify-center gap-x-1 rounded-md  bg-white px-3 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50"
+            <a className="ml-3 px-3 py-2 text-sm font-semibold text-gray-900 cursor-pointer"
               href="/login">Login</a>
-            <a className="inline-flex w-full justify-center gap-x-1 rounded-md  bg-white px-3 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50"
+            <a className="ml-3  px-3 py-2 text-sm font-semibold text-gray-900 cursor-pointer"
               href="/signup">Sign Up</a>
             </>
           )}
@@ -93,6 +93,14 @@ const Navbar = () => {
                 {headers.map((menu, index) => {
                   return <MenuItems items={menu} key={index} />;
                 })}
+                          {!user && (
+            <>
+            <a className="ml-3 px-3 py-2 text-sm font-semibold text-gray-900 cursor-pointer"
+              href="/login">Login</a>
+            <a className="ml-3  px-3 py-2 text-sm font-semibold text-gray-900 cursor-pointer"
+              href="/signup">Sign Up</a>
+            </>
+          )}
                 {user && (
                   <div>
                     <span className="ml-3">{user.email}</span>

@@ -19,7 +19,6 @@ const PricesDetails = ({ prices, barber}) => {
         return;
       }
   
-  
       const updatedPrices = { haircut, beard, skinFade, childrensCut };
       
       const response = await fetch('./api/prices/' + prices._id, {
@@ -91,7 +90,7 @@ const PricesDetails = ({ prices, barber}) => {
         value={childrensCut}
         className=""
       />
-      <button className="mt-4 bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+      <button className="mt-4 bg-blue-600 text-white font-bold  text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
         Submit
       </button>
       {error && <div className=" p-3 bg-red-100 border-b-2 border-b-red-400 text-rose-600 mt-5 m-0">{error}</div>}

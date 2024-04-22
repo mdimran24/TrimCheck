@@ -1,28 +1,33 @@
-const express = require('express')
+const express = require("express");
 
 // Controller Functions
-const {signupUser, signupBarber, loginUser, getUsers, getUser, rateUser} = require('../controllers/userController')
+const {
+  signupUser,
+  signupBarber,
+  loginUser,
+  getUsers,
+  getUser,
+  rateUser,
+} = require("../controllers/userController");
 
-const router  = express.Router()
+const router = express.Router();
 
 // login route
-router.post('/login', loginUser)
+router.post("/login", loginUser);
 
 //signup route
-router.post('/signup', signupUser)
+router.post("/signup", signupUser);
 
 //signup barber route
-router.post('/signup-barber', signupBarber)
+router.post("/signup-barber", signupBarber);
 
 //rate user route
-router.patch('/:email', rateUser)
+router.patch("/:email", rateUser);
 
 // Get All Users
-router.get('/', getUsers)
+router.get("/", getUsers);
 
 // Delete a User by email
-router.get('/:email', getUser)
+router.get("/:email", getUser);
 
-
-
-module.exports = router
+module.exports = router;

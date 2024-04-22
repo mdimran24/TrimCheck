@@ -2,7 +2,7 @@ import { useAppointmentsContext } from "../hooks/useAppointmentsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useEffect, useState } from "react";
 import UpdateModal from "./UpdateModal";
-
+// Component takes in appointment details and presents the data
 const AppointmentDetails = ({ appointment }) => {
   const { dispatch } = useAppointmentsContext();
 
@@ -39,7 +39,7 @@ const AppointmentDetails = ({ appointment }) => {
       dispatch({ type: "DELETE_APPOINTMENT", payload: json });
     }
   };
-  // const time = appointment.date.getHours() + ':' + appointment.date.getMinute();
+
   const dateTime = new Date(appointment.date);
 
   return (
@@ -62,7 +62,7 @@ const AppointmentDetails = ({ appointment }) => {
       </p>
       <div className="items-center">
       <button
-        className="lg:absolute lg:top-16 lg:right-6 lg:m-0  my-2  bg-red-600 text-white font-bold uppercase text-sm px-[70px] py-2  rounded shadow hover:bg-red-700 outline-none focus:outline-none  ease-linear transition-all duration-150"
+        className="lg:absolute lg:top-16 lg:right-6 lg:m-0  my-2  bg-red-600 text-white font-bold  text-sm px-[65px] py-2  rounded shadow hover:bg-red-700 outline-none focus:outline-none  ease-linear transition-all duration-150"
         onClick={areYouSure}
       >
         {CheckIfPast(dateTime) ? "Remove" : "Cancel"}

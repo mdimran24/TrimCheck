@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
 
+import Home from "./pages/Home";
 import Appointments from "./pages/Appointments";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -12,26 +13,26 @@ function App() {
   const { user } = useAuthContext();
   return (
     <div className="App">
-      <BrowserRouter basename="/">
+      <BrowserRouter>
         <Navbar />
         <div className=" m-auto ">
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route
-              path="/"
-              element={user ? <Appointments /> : <Navigate to="/login" />}
+              path="/appointment"
+              element={user ? <Appointments /> : <Login /> }
             />
             <Route
               path="/login"
-              element={!user ? <Login /> : <Navigate to="/" />}
+              element={!user ? <Login /> : <Navigate to="/appointment" />}
             />
             <Route
               path="/signup"
-              element={!user ? <Signup /> : <Navigate to="/" />}
+              element={!user ? <Signup /> : <Navigate to="/appointment" />}
             />
             <Route path="/ratebarber" element={<RateBarber />} />
             <Route path="/haircare" element={<HairCare />} />
             <Route path="/hairstyles" element={<HairStyle />} />
-            
           </Routes>
         </div>
       </BrowserRouter>

@@ -134,11 +134,11 @@ const Home = () => {
           />
 
           <div className="m-1 flex justify-center">
-          <button className= " bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("Ali")}>Ali</button>
-          <button className= "bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("Raz")}>Raz</button>
-          <button className= " bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("Negassi")}>Negassi</button>
-          <button className= " bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("Tav")}>Tav</button>
-          <button className= " bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("")}>All</button>
+          <button className= " bg-blue-600 text-white font-bold  text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("Ali")}>Ali</button>
+          <button className= "bg-blue-600 text-white font-bold  text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("Raz")}>Raz</button>
+          <button className= " bg-blue-600 text-white font-bold  text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("Negassi")}>Negassi</button>
+          <button className= " bg-blue-600 text-white font-bold  text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("Tav")}>Tav</button>
+          <button className= " bg-blue-600 text-white font-bold  text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={() => setSelectedBarber("")}>All</button>
           </div>
 
           </div>

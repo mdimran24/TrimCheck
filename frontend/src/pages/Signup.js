@@ -15,7 +15,7 @@ const Signup = () => {
   }
 
   return (
-    <form className="max-w-[400px] mt-10 m-auto p-5 bg-white rounded" onSubmit={handleSubmit}>
+    <form className="max-w-[400px] mt-24 m-auto p-5 bg-white rounded" onSubmit={handleSubmit}>
       <h3 className="text-2xl font-semibold py-4 ">Sign Up</h3>
 
       <label>First Name:</label>
@@ -44,7 +44,7 @@ const Signup = () => {
         value={password} 
       />
 
-      <button disabled={isLoading} className="mt-4 bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 w-[100%]">Sign up</button>
+      <button disabled={isLoading} className="mt-4 bg-blue-600 text-white font-bold  text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 w-[100%]">Sign up</button>
       {error && <div className="error">{error}</div>}
     </form>
   )

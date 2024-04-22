@@ -19,27 +19,7 @@ const getPrices = async (req, res) => {
 
 
 
-// //get a single appointment
-// const getPrice = async (req, res) => {
-
-//     const { id } = req.params
-    
-//     if(!mongoose.Types.ObjectId.isValid(id)){
-//         return res.status(404).json({error: 'No such appointment'})
-//     }
-
-//     const appointment = await Appointment.findById(id)
-
-//     if(!appointment){
-//         return res.status(404).json({error: 'No such appointment'})
-//     }
-
-//     res.status(200).json(appointment)
-// }
-
-
-
-//create new appointment
+//create prices document
 const createPrices = async (req, res) => {
     const {haircut, beard, skinFade, childrensCut} = req.body
 
@@ -51,7 +31,7 @@ const createPrices = async (req, res) => {
     }
 }
 
-//delete a appointment
+//delete prices document
 const deletePrices = async (req, res) => {
     const { id } = req.params
 
@@ -68,7 +48,7 @@ const deletePrices = async (req, res) => {
     res.status(200).json(prices)
 }
 
-//update a appointment
+//update a price document
 const updatePrices = async (req, res) => {
     const { id }  = req.params
 

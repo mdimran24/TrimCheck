@@ -106,7 +106,7 @@ const RateBarber = () => {
             })}
           </div>
         </div>
-        <button className="mt-4 bg-blue-600 text-white font-bold uppercase text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 w-[100%]">
+        <button className="mt-4 bg-blue-600 text-white font-bold  text-sm px-4 py-2 rounded shadow hover:bg-blue-700 outline-none focus:outline-none mr-1 mb-1 w-[100%]">
           Submit
         </button>
       </form>
